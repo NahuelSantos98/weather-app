@@ -2,10 +2,12 @@ import { View, Text } from 'react-native';
 import { Stack } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { WeatherIcon } from '../components/Icons';
+import { WeatherContextProvider } from '../context/dataContext';
 
 export default function Layout() {
     return (
         <>
+        <WeatherContextProvider>
             <View className="flex-1">
                 <Stack
                     screenOptions={{
@@ -23,6 +25,7 @@ export default function Layout() {
                     }}
                 />
             </View>
+            </WeatherContextProvider>
         </>
     );
 }

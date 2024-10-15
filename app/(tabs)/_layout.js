@@ -1,9 +1,11 @@
 import { Tabs } from "expo-router";
-import { CalendarIcon, HomeIcon } from "../../components/Icons.jsx";
+import { CalendarIcon, EarthIcon } from "../../components/Icons.jsx";
 import { View } from "react-native";
+import { WeatherContextProvider } from "../../context/dataContext.jsx";
 
 export default function TabsLayout(){
     return (
+        <WeatherContextProvider>
         <Tabs
         screenOptions={{
             headerShown: false,
@@ -18,7 +20,7 @@ export default function TabsLayout(){
         name="index"
         options={{
             title: "Today",
-            tabBarIcon: ({color})=> <View className="mt-2"><HomeIcon color={color} /></View>
+            tabBarIcon: ({color})=> <View className="mt-2"><CalendarIcon color={color} /></View>
         }}
         
         />
@@ -26,10 +28,11 @@ export default function TabsLayout(){
         name="calendar"
         options={{
             title: "Calendar",
-            tabBarIcon: ({color})=> <View className="mt-2"><CalendarIcon  color={color}/></View>
+            tabBarIcon: ({color})=> <View className="mt-2"><EarthIcon  color={color}/></View>
         }}
         />
 
         </Tabs>
+        </WeatherContextProvider>
     )
 }
